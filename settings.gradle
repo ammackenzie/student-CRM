@@ -1,0 +1,8 @@
+rootProject.name = 'student-crm'
+
+include 'library'
+include 'application'
+include 'domain'
+include ':controller'
+
+project(":controller").projectDir = file("adapter/controller")
