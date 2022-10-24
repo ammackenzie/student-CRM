@@ -3,12 +3,21 @@ package com.example.multimodule.entity;
 import java.time.ZonedDateTime;
 
 public class Customer {
+    private String id;
     private String crn;
     private String firstName;
     private String lastName;
     private ZonedDateTime createdDate;
 
     public Customer() {}
+
+    public Customer(String id, String crn, String firstName, String lastName, ZonedDateTime createdDate) {
+        this.id = id;
+        this.crn = crn;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.createdDate = createdDate;
+    }
 
     public Customer(String crn, String firstName, String lastName, ZonedDateTime createdDate) {
         this.crn = crn;

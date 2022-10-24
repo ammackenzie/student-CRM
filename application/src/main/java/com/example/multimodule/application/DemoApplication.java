@@ -1,22 +1,25 @@
 package com.example.multimodule.application;
 
-import com.example.multimodule.entity.Customer;
 import com.example.multimodule.service.MyService;
+import com.example.multimodule.repository.MongoCustomerRepository;
+import com.example.multimodule.repository.model.CustomerMongo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.time.ZonedDateTime;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @SpringBootApplication(scanBasePackages = "com.example.multimodule")
-@RestController
-public class DemoApplication {
+@EnableMongoRepositories("com.example.multimodule")
+public class DemoApplication  implements CommandLineRunner {
 
+	@Autowired
+	private MongoCustomerRepository repository;
 	private final MyService myService;
 
-	public DemoApplication(MyService myService) {
+	public DemoApplication(MyService myService, MongoCustomerRepository repository) {
 		this.myService = myService;
+		this.repository = repository;
 	}
 
 	/*@GetMapping("/")
@@ -28,5 +31,33 @@ public class DemoApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		repository.deleteAll();
+
+		// save a couple of customers
+		repository.save(new CustomerMongo("Alice", "Smith"));
+		repository.save(new CustomerMongo("Bob", "Smith"));
+
+		// fetch all customers
+		System.out.println("Customers found with findAll():");
+		System.out.println("-------------------------------");
+		for (CustomerMongo customer : repository.findAll()) {
+			System.out.println(customer);
+		}
+		System.out.println();
+
+		// fetch an individual customer
+		System.out.println("Customer found with findByFirstName('Alice'):");
+		System.out.println("--------------------------------");
+		System.out.println(repository.findByFirstName("Alice"));
+
+		System.out.println("Customers found with findByLastName('Smith'):");
+		System.out.println("--------------------------------");
+		for (CustomerMongo customer : repository.findByLastName("Smith")) {
+			System.out.println(customer);
+		}
 	}
 }
