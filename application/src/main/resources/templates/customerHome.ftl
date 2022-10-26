@@ -1,20 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
-
-<div class="container">
-  <h1>My First Bootstrap Page</h1>
-  <p>This part is inside a .container class.</p>
-  <p>The .container class provides a responsive fixed width container.</p>
-</div>
-
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Spring Boot Form Submission</title>
+        <link href="/css/main.css" rel="stylesheet">
+    </head>
+    <body>
+    <h1>Customer search</h1>
+        <input id="customerCrn" type="text" placeholder="Search crn">
+        <button id="customerSupplierBtn" onclick="searchCustomerBtnClicked()" title="Search">
+        	Search
+        </button>
+        <h1>Spring Boot Form Submission</h1>
+        <#if customer?? >
+            Your submitted data<br>
+            CRN: ${customer.crn}<br>
+            Name: ${customer.firstName} ${customer.lastName}<br>
+        <#else>
+            <form action="/customerHome" method="post">
+                <div>CRN:</div>
+                <input type="text" name="crn"/>
+                <div>First Name:</div>
+                <input type="text" name="firstName"/>
+                <div>Last Name:</div>
+                 <input type="text" name="lastName"/>
+                <br/><br/>
+                <input type="submit" value="Submit"/>
+                <input type="reset" value="Reset"/>
+            </form>
+        </#if>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="/js/main.js"></script>
+    </body>
 </html>

@@ -1,12 +1,17 @@
 package com.example.multimodule.repository;
 
-import com.example.multimodule.repository.model.CustomerMongo;
+import com.example.multimodule.entity.Customer;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
+import java.util.Optional;
 
-public interface MongoCustomerRepository extends MongoRepository<CustomerMongo, String> {
+public interface MongoCustomerRepository extends MongoRepository<Customer, String> {
 
-    public CustomerMongo findByFirstName(String firstName);
-    public List<CustomerMongo> findByLastName(String lastName);
+    public Customer findByFirstName(String firstName);
+    public List<Customer> findByLastName(String lastName);
+
+    public Optional<Customer> findByCrn(String crn);
+
+
 }

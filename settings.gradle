@@ -6,4 +6,3 @@ include 'domain'
 include 'mongodb'
 project(":mongodb").projectDir = file("adapter/repository/mongodb")
 
-
