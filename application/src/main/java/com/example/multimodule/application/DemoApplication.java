@@ -1,6 +1,5 @@
 package com.example.multimodule.application;
 
-import com.example.multimodule.entity.Customer;
 import com.example.multimodule.repository.MongoCustomerRepository;
 import com.example.multimodule.service.MyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +34,8 @@ public class DemoApplication  implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		repository.deleteAll();
-		repository.save(new Customer("111111111", "first", "last"));
+		//repository.deleteAll();
+		//repository.save(new Customer("111111111", "first", "last"));
 		//Customer customer = repository.findById("63593b049fd71543329f5c96").get();
 		//customer.setCrn("2222222");
 		//repository.save(customer);

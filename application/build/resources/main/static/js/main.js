@@ -5,9 +5,14 @@
 	function searchCustomerBtnClicked(paymentId){
 		var crn = $("#customerCrn").val();
 		console.log("crn: " + crn);
-		alert(crn);
 		$.get("/" + crn + "/customerSearch", function (data) {
-            console.log("data:" + data)
+		    if(!$.trim(data)){
+		        alert("No customer found for crn: " + crn);
+		    }else{
+                console.log("firstName:" + data.firstName);
+                console.log("lastName:" + data.lastName);
+            }
+
         });
        	/*	$.ajax({
 			type: "GET",
@@ -17,5 +22,9 @@
 				console.log("data:" + data)
 			}
 		});*/
+
+	}
+
+	function fillCustomerFields(data){
 
 	}
