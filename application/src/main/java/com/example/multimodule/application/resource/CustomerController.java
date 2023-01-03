@@ -27,6 +27,11 @@ public class CustomerController {
         return "customerHome";
     }
 
+    @GetMapping("/customerCreate")
+    public String customerCreateGet() {
+        return "customerCreate";
+    }
+
     @ResponseBody
     @RequestMapping(value="/{crn}/customerSearch", method= RequestMethod.GET)
     public Customer customerSearchGet(@PathVariable("crn") String crn) {

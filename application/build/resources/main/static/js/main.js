@@ -5,14 +5,9 @@
 	function searchCustomerBtnClicked(paymentId){
 		var crn = $("#customerCrn").val();
 		console.log("crn: " + crn);
+		alert(crn);
 		$.get("/" + crn + "/customerSearch", function (data) {
-		    if(!$.trim(data)){
-		        alert("No customer found for crn: " + crn);
-		    }else{
-                console.log("firstName:" + data.firstName);
-                console.log("lastName:" + data.lastName);
-            }
-
+            console.log("data:" + data)
         });
        	/*	$.ajax({
 			type: "GET",
@@ -25,6 +20,8 @@
 
 	}
 
-	function fillCustomerFields(data){
+    function createCustomerBtnClicked(){
+        var crn = $("#customerCrn").val();
+        window.location='/customerCreate';
 
-	}
+    }
