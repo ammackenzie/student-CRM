@@ -11,7 +11,10 @@
         <button id="customerSupplierBtn" onclick="searchCustomerBtnClicked()" title="Search">
         	Search
         </button>
-        <h1>Add Customer</h1>
+		<button id="customerSupplierBtn" onclick="createCustomerBtnClicked()" title="Search">
+        	Create
+        </button>
+        <h1>Spring Boot Form Submission</h1>
         <#if customer?? >
             Your submitted data<br>
             CRN: ${customer.crn}<br>

@@ -20,7 +20,7 @@ public class CustomerManager {
             customerDb.get().setLastName(customer.getLastName());
             saved = this.repository.save(customerDb.get());
         }else{
-            saved = this.repository.save(customerDb.get());
+            saved = this.repository.save(customer);
         }
         return saved;
     }
