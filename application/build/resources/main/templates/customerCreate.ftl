@@ -19,8 +19,7 @@
 
 <head>
 	<meta http-equiv="Content-type" content="text=html" charset="UTF-8">
-	<title><#if title?? && title?has_content>DSA CORE :: Create Customer - ${title}</#if></title>
-	<link href="/assets/css/ayTabsCss.css" rel="stylesheet">
+	<title><#if title??>Create Customer - ${title}</#if></title>
 </head>
 
 <body class="app header-fixed sidebar-hidden aside-menu-fixed aside-menu-hidden">
@@ -31,7 +30,7 @@
 	<main class="main" id="mwRecordView">
 		<!-- Breadcrumb -->
 		<ol id="SearchBreadCrumb" class="breadcrumb mb-0 pl-1 pb-0 pt-0">
-			<li class="breadcrumb-item"><a href="/home">Home</a></li>
+			<li class="breadcrumb-item"><a href="/customerHome">Home</a></li>
 			<li class="breadcrumb-item"><a href="/customer/customerHome">Customer</a></li>
 			<li class="breadcrumb-item">Create</li>
 		</ol>
@@ -53,12 +52,12 @@
 										<div class="card-body">
 											<#if title??>
 											<div style="padding:8px;">
-												<form id="createNewCustomerForm" method="post" enctype="application/x-www-form-urlencoded" <#if title?? && title?has_content>action='/customer/create'</#if>>
+												<form id="createNewCustomerForm" method="post" enctype="application/x-www-form-urlencoded" action='/customerHome'>
 													<div class="row">
 														<label class="${colmn6lbl}"><p>CRN<b style="color:red;">*</b></p></label>
 														<div class="${colmn6}">
 															<div class="form-group row">
-																<input type="text" class="selectpicker form-control " name="crn" id="crn" readonly value="<#if title?? && title?has_content>${title}</#if>"/>
+																<input type="text" class="selectpicker form-control " name="crn" id="crn" value="<#if title??>${title}</#if>" maxlength="11"/>
 															</div>
 														</div>
 													</div>
@@ -66,7 +65,7 @@
 														<label class="${colmn6lbl}"><p>First Name<b style="color:red;">*</b></p></label>
 														<div class="${colmn6}">
 															<div class="form-group row">
-																<input type="text" class="selectpicker form-control " id="firstName" readonly value="<#if firstName??>${firstName}</#if>"/>
+																<input type="text" class="selectpicker form-control " id="firstName" name="firstName" value="<#if firstName??>${firstName}</#if>"/>
 															</div>
 														</div>
 													</div>
@@ -74,17 +73,8 @@
 														<label class="${colmn6lbl}"><p>Last Name<b style="color:red;">*</b></p></label>
 														<div class="${colmn6}">
 															<div class="form-group row">
-																<input type="text" class="selectpicker form-control " id="lastName" readonly value="<#if lastName??>${lastName}</#if>"/>
+																<input type="text" class="selectpicker form-control " id="lastName" name="lastName" value="<#if lastName??>${lastName}</#if>"/>
 															</div>
-														</div>
-													</div>
-													<div class="row">
-														<label class="${colmn6lbl}"><p>Domicile<b style="color:red;">*</b></p></label>
-														<div class="${colmn6}">
-															<select class="selectpicker form-control"id="domicile" name="domicile">
-																<option value="SFE">SFE</option>
-																<option value="SFW">SFW</option>
-															</select>
 														</div>
 													</div>
 													<div class="row">
@@ -103,14 +93,6 @@
 															</div>
 														</div>
 													</div>
-													<div class="row">
-														<label class="${colmn6lbl}"><p>Entitlement Start Date<b style="color:red;">*</b></p></label>
-														<div class="${colmn6}">
-															<div class="form-group row">
-																<input type="date" class="selectpicker form-control " name="entitlementStartDate" id="entitlementStartDate"/>
-															</div>
-														</div>
-													</div>
 												</form>
 													<div class="row">
 														<div class="${colmn12}">
@@ -118,7 +100,7 @@
 																<button id="submitCreateCustomerBtn" class="btn btn-primary showPointer" onclick="validateFormFields()" title="">
 																	Submit
 																</button>
-																<a href="/customer/customerHome"><button id="cancelCreateCustomerBtn" class="btn btn-danger showPointer" onclick="" title="">
+																<a href="/customerHome"><button id="cancelCreateCustomerBtn" class="btn btn-danger showPointer" onclick="" title="">
 																	Cancel
 																</button></a>
 															</div>
@@ -140,8 +122,8 @@
 	</main>
 
 </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="/js/customerCreate.js"></script>
+		<#include "/includes/includes.ftl">
+		<#include "/includes/customerCreate.ftl">
 </body>
 
 </html>
