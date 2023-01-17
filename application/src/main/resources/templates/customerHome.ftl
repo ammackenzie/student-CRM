@@ -20,19 +20,8 @@
             CRN: ${customer.crn}<br>
             Name: ${customer.firstName} ${customer.lastName}<br>
         <#else>
-            <form action="/customerHome" method="post">
-                <div>CRN:</div>
-                <input type="text" name="crn"/>
-                <div>First Name:</div>
-                <input type="text" name="firstName"/>
-                <div>Last Name:</div>
-                 <input type="text" name="lastName"/>
-                <br/><br/>
-                <input type="submit" value="Submit"/>
-                <input type="reset" value="Reset"/>
-            </form>
         </#if>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="/js/main.js"></script>
+        <#include "/includes/includes.ftl">
+		<#include "/includes/customerHomeJs.ftl">
     </body>
 </html>

@@ -46,7 +46,7 @@
 									<div class="card">
 										<div class="card-header">
 											<div class="btn-group float-left show">
-												<div class="card-title">Customer Details</div>
+												<div class="card-title">Create Customer</div>
 											</div>
 										</div>
 										<div class="card-body">
@@ -123,7 +123,7 @@
 
 </div>
 		<#include "/includes/includes.ftl">
-		<#include "/includes/customerCreate.ftl">
+		<#include "/includes/customerCreateJs.ftl">
 </body>
 
 </html>

@@ -123,7 +123,7 @@
 
 </div>
 		<#include "/includes/includes.ftl">
-		<#include "/includes/customerCreate.ftl">
+		<#include "/includes/customerCreateJs.ftl">
 </body>
 
 </html>

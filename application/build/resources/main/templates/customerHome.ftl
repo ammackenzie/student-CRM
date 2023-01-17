@@ -32,7 +32,7 @@
                 <input type="reset" value="Reset"/>
             </form>
         </#if>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="/js/main.js"></script>
+        <#include "/includes/includes.ftl">
+		<#include "/includes/customerHomeJs.ftl">
     </body>
 </html>
