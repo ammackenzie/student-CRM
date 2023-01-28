@@ -1,8 +1,10 @@
 package com.example.multimodule.entity;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.ZonedDateTime;
+import java.util.Date;
 
 public class Customer {
     @Id
@@ -10,6 +12,11 @@ public class Customer {
     private String crn;
     private String firstName;
     private String lastName;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date courseStartDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date courseEndDate;
     private ZonedDateTime lastUpdatedDate;
     private ZonedDateTime createdDate;
 
@@ -31,6 +38,42 @@ public class Customer {
         this.lastUpdatedDate = lastUpdatedDate;
     }
 
+    public Customer(String id, String crn, String firstName, String lastName, Date courseStartDate, Date courseEndDate, ZonedDateTime lastUpdatedDate, ZonedDateTime createdDate) {
+        this.id = id;
+        this.crn = crn;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.courseStartDate = courseStartDate;
+        this.courseEndDate = courseEndDate;
+        this.lastUpdatedDate = lastUpdatedDate;
+        this.createdDate = createdDate;
+    }
+
+    public Customer(String crn, String firstName, String lastName, Date courseStartDate, Date courseEndDate, ZonedDateTime lastUpdatedDate, ZonedDateTime createdDate) {
+        this.crn = crn;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.courseStartDate = courseStartDate;
+        this.courseEndDate = courseEndDate;
+        this.lastUpdatedDate = lastUpdatedDate;
+        this.createdDate = createdDate;
+    }
+
+    public Date getCourseStartDate() {
+        return courseStartDate;
+    }
+
+    public void setCourseStartDate(Date courseStartDate) {
+        this.courseStartDate = courseStartDate;
+    }
+
+    public Date getCourseEndDate() {
+        return courseEndDate;
+    }
+
+    public void setCourseEndDate(Date courseEndDate) {
+        this.courseEndDate = courseEndDate;
+    }
 
     public Customer(String crn, String firstName, String lastName) {
         this.crn = crn;

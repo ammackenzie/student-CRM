@@ -13,5 +13,7 @@ public interface MongoCustomerRepository extends MongoRepository<Customer, Strin
 
     public Optional<Customer> findByCrn(String crn);
 
+    public List<Customer> findAllByCrn(String crn);
+
 
 }

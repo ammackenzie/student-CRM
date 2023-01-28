@@ -4,8 +4,9 @@ import com.example.multimodule.application.usecase.CustomerManager;
 import com.example.multimodule.entity.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 public class CustomerController {
@@ -39,10 +40,16 @@ public class CustomerController {
         return this.customerManager.findByCrn(crn);
     }
 
-    @PostMapping("/customerHome")
-    public String formPost(Customer customer, Model model) {
+    @ResponseBody
+    @RequestMapping(value="/{crn}/containsView", method= RequestMethod.GET)
+    public List<Customer> getAllContains(@PathVariable("crn") String crn) {
+        List<Customer> customers = this.customerManager.findAllByCrn(crn);
+        return customers;
+    }
+    @PostMapping("/createCustomer")
+    public String createCustomer(Customer customer) {
         Customer saved = this.customerManager.createCustomer(customer);
-        model.addAttribute("customer", saved);
+        //model.addAttribute("customer", saved);
         return "customerHome";
     }
 }

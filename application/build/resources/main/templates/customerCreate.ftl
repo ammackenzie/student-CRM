@@ -1,17 +1,5 @@
-<#-- @ftlvariable name="" type="uk.co.slc.cleanarch.view.CustomView" -->
-<#assign colmn2lblsm = "col-lg-2 col-sm-2 col-md-2 col-form-label-sm">
-<#assign colmn4lblsm = "col-lg-4 col-sm-4 col-md-4 col-form-label-sm">
-<#assign colmn6lblsm = "col-lg-6 col-sm-6 col-md-6 col-form-label-sm">
-<#assign colmn4lbl = "col-lg-4 col-sm-4 col-md-4 col-form-label">
-<#assign colmn6lbl = "col-lg-6 col-sm-6 col-md-6 col-form-label">
-<#assign colmn1 = "col-md-1 col-lg-1 col-sm-1">
-<#assign colmn2 = "col-md-2 col-lg-2 col-sm-2">
-<#assign colmn3 = "col-md-3 col-lg-3 col-sm-3">
-<#assign colmn4 = "col-md-4 col-lg-4 col-sm-4">
-<#assign colmn5 = "col-md-5 col-lg-5 col-sm-5">
-<#assign colmn6 = "col-md-6 col-lg-6 col-sm-6">
-<#assign colmn8 = "col-md-8 col-lg-8 col-sm-8">
-<#assign colmn12 = "col-md-12 col-lg-12 col-sm-12">
+<#include "/includes/includes.ftl">
+<#include "/includes/customerCreateJs.ftl">
 <#assign showFormOnInit = true >
 <#assign title = "test title" >
 <!DOCTYPE html>
@@ -46,13 +34,13 @@
 									<div class="card">
 										<div class="card-header">
 											<div class="btn-group float-left show">
-												<div class="card-title">Customer Details</div>
+												<div class="card-title">Create Customer</div>
 											</div>
 										</div>
 										<div class="card-body">
 											<#if title??>
 											<div style="padding:8px;">
-												<form id="createNewCustomerForm" method="post" enctype="application/x-www-form-urlencoded" action='/customerHome'>
+												<form id="createNewCustomerForm" method="post" enctype="application/x-www-form-urlencoded" action='/createCustomer'>
 													<div class="row">
 														<label class="${colmn6lbl}"><p>CRN<b style="color:red;">*</b></p></label>
 														<div class="${colmn6}">
@@ -122,8 +110,6 @@
 	</main>
 
 </div>
-		<#include "/includes/includes.ftl">
-		<#include "/includes/customerCreateJs.ftl">
 </body>
 
 </html>
