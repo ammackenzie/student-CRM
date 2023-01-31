@@ -5,6 +5,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
+import static com.example.multimodule.entity.utils.UtilConstants.convertDateToInputFormat;
+
 public class Customer {
     @Id
     private String id;
@@ -123,6 +125,15 @@ public class Customer {
     public Date getUpdatedDateAsDate() {
         return null!=getLastUpdatedDate()?Date.from(getLastUpdatedDate().toInstant()):null;
     }
+
+    public String getCourseStartDateAsInputString(){
+        return convertDateToInputFormat(getCourseStartDate());
+    }
+
+    public String getCourseEndDateAsInputString(){
+        return convertDateToInputFormat(getCourseEndDate());
+    }
+
 
     @Override
     public String toString() {

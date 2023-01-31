@@ -72,12 +72,12 @@
 															</div>
 														</div>
 													</div>
-													<!--<div class="col-lg-4">
+													<div class="col-lg-4">
 														<div class="row">
 															<label class="${colmn4lbl}">Course Start Date:</label>
 															<div class="${colmn8}">
 																<div class="form-group row">
-																	<input  type="text" id="courseStartDate" class="selectpicker form-control" name="courseStartDate" value='<#if currentCustomer.getCourseStartDateAsDate()??>${currentCustomer.getCourseStartDateAsDate()?date?string["dd/MM/yyyy"]}</#if>'>
+																	<input type="date" id="courseStartDate" class="selectpicker form-control" name="courseStartDate" value='<#if currentCustomer.getCourseStartDateAsInputString()??>${currentCustomer.getCourseStartDateAsInputString()}</#if>'>
 																</div>
 															</div>
 														</div>
@@ -85,13 +85,11 @@
 															<label class="${colmn4lbl}">Course End Date:</label>
 															<div class="${colmn8}">
 																<div class="form-group row">
-																	<input  type="text" id="courseEndDate" class="selectpicker form-control" name="courseEndDate" value='<#if currentCustomer.getCourseEndDateAsDate()??>${currentCustomer.getCourseEndDateAsDate()?date?string["dd/MM/yyyy"]}</#if>'>
+																	<input type="date" id="courseEndDate" class="selectpicker form-control" name="courseEndDate" value='<#if currentCustomer.getCourseEndDateAsInputString()??>${currentCustomer.getCourseEndDateAsInputString()}</#if>'>
 																</div>
 															</div>
 														</div>
-														
 													</div>
-													-->
 												</div>
 											</form>	
 											</#if>
@@ -103,7 +101,7 @@
 															<button type="button" id="editCustomerBtn" class="btn btn-primary showPointer" onclick="validateFormFields()" title="Edit" >
 																Submit
 															</button>
-														<a href="/customerHome"><button id="cancelCreateCustomerBtn" class="btn btn-danger showPointer" onclick="" title="">
+														<a ><button id="cancelEditCustomerBtn" class="btn btn-danger showPointer" onclick="<#if currentCustomer.getId()??>onclick="redirectToCustomerDetails('${currentCustomer.getId()}')"</#if>redirectToCustomerDetails()" title="">
 																Cancel
 															</button></a>
 													</div>

@@ -16,6 +16,9 @@ public class CustomerMongo {
     private Date lastUpdatedDate;
     private Date createdDate;
 
+    private Date courseStartDate;
+    private Date courseEndDate;
+
     public CustomerMongo() {}
 
     public static CustomerMongo from(Customer customer) {
@@ -25,7 +28,10 @@ public class CustomerMongo {
         customerDb.setFirstName(customer.getFirstName());
         customerDb.setLastName(customer.getLastName());
         customerDb.setCrn(customer.getCrn());
+        customerDb.setCourseStartDate(customer.getCourseStartDate());
+        customerDb.setCourseEndDate(customer.getCourseEndDate());
         customerDb.setCreatedDate(customer.getCreatedDate());
+        customerDb.setLastUpdatedDate(customer.getCreatedDate());
         return customerDb;
     }
 
@@ -47,7 +53,16 @@ public class CustomerMongo {
         this.createdDate = createdDate;
     }
 
-
+    public CustomerMongo(String id, String crn, String firstName, String lastName, Date lastUpdatedDate, Date createdDate, Date courseStartDate, Date courseEndDate) {
+        this.id = id;
+        this.crn = crn;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.lastUpdatedDate = lastUpdatedDate;
+        this.createdDate = createdDate;
+        this.courseStartDate = courseStartDate;
+        this.courseEndDate = courseEndDate;
+    }
 
     public CustomerMongo(String crn, String firstName, String lastName) {
         this.crn = crn;
@@ -107,6 +122,22 @@ public class CustomerMongo {
 
     public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
+    }
+
+    public Date getCourseStartDate() {
+        return courseStartDate;
+    }
+
+    public void setCourseStartDate(Date courseStartDate) {
+        this.courseStartDate = courseStartDate;
+    }
+
+    public Date getCourseEndDate() {
+        return courseEndDate;
+    }
+
+    public void setCourseEndDate(Date courseEndDate) {
+        this.courseEndDate = courseEndDate;
     }
 
     @Override

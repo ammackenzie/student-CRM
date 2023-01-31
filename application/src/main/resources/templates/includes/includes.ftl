@@ -12,6 +12,8 @@
 <#assign colmn8 = "col-md-8 col-lg-8 col-sm-8">
 <#assign colmn12 = "col-md-12 col-lg-12 col-sm-12">
 
+<#include "/includes/commonFunctionsJs.ftl">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">

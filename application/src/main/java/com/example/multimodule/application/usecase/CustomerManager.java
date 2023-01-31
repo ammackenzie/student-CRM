@@ -24,14 +24,11 @@ public class CustomerManager {
         }
         return saved;
     }
-
     public Customer updateCustomer(Customer customer) {
         Optional<Customer> customerDb = this.repository.findByCrn(customer.getCrn());
         Customer saved;
         if(customerDb.isPresent()){
-            customerDb.get().setFirstName(customer.getFirstName());
-            customerDb.get().setLastName(customer.getLastName());
-            saved = this.repository.save(updateCustomerConverter(customerDb.get()));
+            saved = this.repository.save(updateCustomerConverter(customerDb.get(), customer));
         }else{
            throw new RuntimeException("Customer can't be found by CRN");
         }
@@ -56,14 +53,16 @@ public class CustomerManager {
 
     public static Customer createCustomerConverter(Customer customer){
         customer.setCreatedDate(new Date());
-        customer.setLastUpdatedDate(new Date());
+        customer.setLastUpdatedDate(customer.getLastUpdatedDate());
         return customer;
     }
 
-    public static Customer updateCustomerConverter(Customer customer){
-        customer.setLastUpdatedDate(new Date());
-        return customer;
+    public static Customer updateCustomerConverter(Customer base, Customer working){
+        base.setFirstName(working.getFirstName());
+        base.setLastName(working.getLastName());
+        base.setCourseStartDate(working.getCourseStartDate());
+        base.setCourseEndDate(working.getCourseEndDate());
+        base.setLastUpdatedDate(new Date());
+        return base;
     }
-
-
 }
