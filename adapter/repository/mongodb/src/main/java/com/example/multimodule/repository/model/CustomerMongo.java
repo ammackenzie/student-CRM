@@ -4,7 +4,7 @@ import com.example.multimodule.entity.Customer;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 
-import java.time.ZonedDateTime;
+import java.util.Date;
 import java.util.Optional;
 
 public class CustomerMongo {
@@ -13,8 +13,8 @@ public class CustomerMongo {
     private String crn;
     private String firstName;
     private String lastName;
-    private ZonedDateTime lastUpdatedDate;
-    private ZonedDateTime createdDate;
+    private Date lastUpdatedDate;
+    private Date createdDate;
 
     public CustomerMongo() {}
 
@@ -29,7 +29,7 @@ public class CustomerMongo {
         return customerDb;
     }
 
-    public CustomerMongo(String id, String crn, String firstName, String lastName, ZonedDateTime lastUpdatedDate, ZonedDateTime createdDate) {
+    public CustomerMongo(String id, String crn, String firstName, String lastName, Date lastUpdatedDate, Date createdDate) {
         this.id = id;
         this.crn = crn;
         this.firstName = firstName;
@@ -39,7 +39,7 @@ public class CustomerMongo {
     }
 
 
-    public CustomerMongo(String crn, String firstName, String lastName, ZonedDateTime lastUpdatedDate, ZonedDateTime createdDate) {
+    public CustomerMongo(String crn, String firstName, String lastName, Date lastUpdatedDate, Date createdDate) {
         this.crn = crn;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -53,8 +53,6 @@ public class CustomerMongo {
         this.crn = crn;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.lastUpdatedDate = lastUpdatedDate;
-        this.createdDate = createdDate;
     }
 
     public CustomerMongo(String firstName, String lastName) {
@@ -95,19 +93,19 @@ public class CustomerMongo {
         this.lastName = lastName;
     }
 
-    public ZonedDateTime getLastUpdatedDate() {
+    public Date getLastUpdatedDate() {
         return lastUpdatedDate;
     }
 
-    public void setLastUpdatedDate(ZonedDateTime lastUpdatedDate) {
+    public void setLastUpdatedDate(Date lastUpdatedDate) {
         this.lastUpdatedDate = lastUpdatedDate;
     }
 
-    public ZonedDateTime getCreatedDate() {
+    public Date getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(ZonedDateTime createdDate) {
+    public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
     }
 

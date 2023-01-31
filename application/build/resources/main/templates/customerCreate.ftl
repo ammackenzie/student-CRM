@@ -19,7 +19,6 @@
 		<!-- Breadcrumb -->
 		<ol id="SearchBreadCrumb" class="breadcrumb mb-0 pl-1 pb-0 pt-0">
 			<li class="breadcrumb-item"><a href="/customerHome">Home</a></li>
-			<li class="breadcrumb-item"><a href="/customer/customerHome">Customer</a></li>
 			<li class="breadcrumb-item">Create</li>
 		</ol>
 		<div class="container-fluid">

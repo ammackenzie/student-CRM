@@ -3,7 +3,6 @@ package com.example.multimodule.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.time.ZonedDateTime;
 import java.util.Date;
 
 public class Customer {
@@ -17,28 +16,12 @@ public class Customer {
     private Date courseStartDate;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date courseEndDate;
-    private ZonedDateTime lastUpdatedDate;
-    private ZonedDateTime createdDate;
+    private Date lastUpdatedDate;
+    private Date createdDate;
 
     public Customer() {}
 
-    public Customer(String id, String crn, String firstName, String lastName, ZonedDateTime createdDate, ZonedDateTime lastUpdatedDate) {
-        this.id = id;
-        this.crn = crn;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.createdDate = createdDate;
-        this.lastUpdatedDate = lastUpdatedDate;
-    }
-    public Customer(String crn, String firstName, String lastName, ZonedDateTime createdDate, ZonedDateTime lastUpdatedDate) {
-        this.crn = crn;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.createdDate = createdDate;
-        this.lastUpdatedDate = lastUpdatedDate;
-    }
-
-    public Customer(String id, String crn, String firstName, String lastName, Date courseStartDate, Date courseEndDate, ZonedDateTime lastUpdatedDate, ZonedDateTime createdDate) {
+    public Customer(String id, String crn, String firstName, String lastName, Date courseStartDate, Date courseEndDate, Date lastUpdatedDate, Date createdDate) {
         this.id = id;
         this.crn = crn;
         this.firstName = firstName;
@@ -49,7 +32,7 @@ public class Customer {
         this.createdDate = createdDate;
     }
 
-    public Customer(String crn, String firstName, String lastName, Date courseStartDate, Date courseEndDate, ZonedDateTime lastUpdatedDate, ZonedDateTime createdDate) {
+    public Customer(String crn, String firstName, String lastName, Date courseStartDate, Date courseEndDate, Date lastUpdatedDate, Date createdDate) {
         this.crn = crn;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -113,20 +96,32 @@ public class Customer {
         this.lastName = lastName;
     }
 
-    public ZonedDateTime getLastUpdatedDate() {
+    public Date getLastUpdatedDate() {
         return lastUpdatedDate;
     }
 
-    public void setLastUpdatedDate(ZonedDateTime lastUpdatedDate) {
+    public void setLastUpdatedDate(Date lastUpdatedDate) {
         this.lastUpdatedDate = lastUpdatedDate;
     }
 
-    public ZonedDateTime getCreatedDate() {
+    public Date getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(ZonedDateTime createdDate) {
+    public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
+    }
+
+    public Date getCourseStartDateAsDate() { return null!=getCourseStartDate()?Date.from(getCourseStartDate().toInstant()):null; }
+
+    public Date getCourseEndDateAsDate() { return null!=getCourseEndDate()?Date.from(getCourseEndDate().toInstant()):null; }
+
+    public Date getCreatedDateAsDate() {
+        return null!=getCreatedDate()?Date.from(getCreatedDate().toInstant()):null;
+    }
+
+    public Date getUpdatedDateAsDate() {
+        return null!=getLastUpdatedDate()?Date.from(getLastUpdatedDate().toInstant()):null;
     }
 
     @Override

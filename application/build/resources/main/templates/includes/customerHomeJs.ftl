@@ -74,7 +74,10 @@
     function createCustomerBtnClicked(){
         var crn = $("#customerCrn").val();
         window.location='/customerCreate';
-
+    }
+	
+	function redirectToCustomerDetails(crn){
+        window.location='/'+crn+'/customerCreate';
     }
 	
 	function renderOnce(){
@@ -147,8 +150,7 @@
 
 							},
 							columns: [
-								{title: "CRN", "data": "crn", "defaultContent": "","bSortable":true,"bSearchable": true, render: function (data, type, row){
-								return "<a href='"  + row.id + "/customerDetails'>" + row.name + "</a>" }},
+								{title: "CRN", "data": "crn", "defaultContent": "","bSortable":true,"bSearchable": true},
 								{title: "First Name", "data": "firstName", "defaultContent": "","bSortable":true,"bSearchable": true},
 								{title: "Last Name", "data": "lastName", "defaultContent": "","bSortable":true,"bSearchable": true},
 								{title: "Course Start Date", "data": "courseStartDate", "defaultContent": "","bSortable":true,"bSearchable": true},
@@ -157,7 +159,7 @@
 									render: function (data, type, row) {
 										try{
 											//return " <button class='btn btn-warning showPointer' onclick='javascript:redirectToSupplierDetails(\""+row.name+"\");'> Details </button>"
-											return " <button class='btn btn-warning showPointer' onclick='javascript:redirectToCustomerDetails(\""+row.id+"\");'> Details </button>"
+											return " <button class='btn btn-warning showPointer' onclick='javascript:redirectToCustomerDetails(\""+row.crn+"\");'> Details </button>"
 										}catch (e){return "";}
 									}
 								},

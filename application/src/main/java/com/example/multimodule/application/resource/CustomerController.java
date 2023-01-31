@@ -4,6 +4,7 @@ import com.example.multimodule.application.usecase.CustomerManager;
 import com.example.multimodule.entity.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,6 +34,18 @@ public class CustomerController {
         return "customerCreate";
     }
 
+    @GetMapping("/{crn}/customerCreate")
+    public String customerCreateGet(@PathVariable("crn") String crn, Model model) {
+        model.addAttribute("customer", this.customerManager.findByCrn(crn));
+        return "customerDetails";
+    }
+
+    @GetMapping("/{id}/customerEdit")
+    public String customerEditGet(@PathVariable("id") String id, Model model) {
+        model.addAttribute("customer", this.customerManager.findById(id));
+        return "customerEdit";
+    }
+
     @ResponseBody
     @RequestMapping(value="/{crn}/customerSearch", method= RequestMethod.GET)
     public Customer customerSearchGet(@PathVariable("crn") String crn) {
@@ -51,5 +64,12 @@ public class CustomerController {
         Customer saved = this.customerManager.createCustomer(customer);
         //model.addAttribute("customer", saved);
         return "customerHome";
+    }
+
+    @PostMapping("/updateCustomer")
+    public String updateCustomer(Customer customer, Model model) {
+        Customer saved = this.customerManager.updateCustomer(customer);
+        model.addAttribute("customer", saved);
+        return "customerDetails";
     }
 }
