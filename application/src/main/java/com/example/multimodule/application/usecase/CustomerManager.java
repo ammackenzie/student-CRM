@@ -53,7 +53,7 @@ public class CustomerManager {
 
     public static Customer createCustomerConverter(Customer customer){
         customer.setCreatedDate(new Date());
-        customer.setLastUpdatedDate(customer.getLastUpdatedDate());
+        customer.setLastUpdatedDate(customer.getCreatedDate());
         return customer;
     }
 
