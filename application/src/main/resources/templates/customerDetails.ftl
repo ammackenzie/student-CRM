@@ -33,10 +33,7 @@
 								<div class="card-header">
 									<div class="btn-group float-left show">
 										<div class="btn-group float-left show">
-											<a data-toggle="collapse" href="#collapseBodyTypeDetails" aria-expanded="true" aria-controls="collapseBody" id="collapseSupplier" class="d-block pull-right">
-												<b>Customer Details</b>
-												<i class="fa fa-chevron-down pull-right"></i>
-											</a>
+											<b>Customer Details</b>
 										</div>
 									</div>
 								</div>
@@ -46,6 +43,14 @@
 											<#if currentCustomer??>
 											<div class="row">
 												<div class="col-lg-4">
+													<div class="row">
+														<label class="${colmn4lbl}">CRN:</label>
+														<div class="${colmn8}">
+															<div class="form-group row">
+																<input type="text" id="crn" class="selectpicker form-control" name="crn" readonly value='<#if currentCustomer.getCrn()??>${currentCustomer.getCrn()}</#if>'>
+															</div>
+														</div>
+													</div>
 													<div class="row">
 														<label class="${colmn4lbl}">First Name:</label>
 														<div class="${colmn8}">
@@ -59,14 +64,6 @@
 														<div class="${colmn8}">
 															<div class="form-group row">
 																<input type="text" id="lastName" class="selectpicker form-control" name="lastName" readonly  value='<#if currentCustomer.getLastName()??>${currentCustomer.getLastName()}</#if>'>
-															</div>
-														</div>
-													</div>
-													<div class="row">
-														<label class="${colmn4lbl}">CRN:</label>
-														<div class="${colmn8}">
-															<div class="form-group row">
-																<input type="text" id="crn" class="selectpicker form-control" name="crn" readonly value='<#if currentCustomer.getCrn()??>${currentCustomer.getCrn()}</#if>'>
 															</div>
 														</div>
 													</div>

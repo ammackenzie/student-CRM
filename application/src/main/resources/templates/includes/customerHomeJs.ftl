@@ -76,8 +76,8 @@
         window.location='/customerCreate';
     }
 	
-	function redirectToCustomerDetails(crn){
-        window.location='/'+crn+'/customerCreate';
+	function redirectToCustomerDetails(id){
+        window.location='/'+id+'/customerDetails';
     }
 	
 	function renderOnce(){
@@ -159,7 +159,7 @@
 									render: function (data, type, row) {
 										try{
 											//return " <button class='btn btn-warning showPointer' onclick='javascript:redirectToSupplierDetails(\""+row.name+"\");'> Details </button>"
-											return " <button class='btn btn-warning showPointer' onclick='javascript:redirectToCustomerDetails(\""+row.crn+"\");'> Details </button>"
+											return " <button class='btn btn-warning showPointer' onclick='javascript:redirectToCustomerDetails(\""+row.id+"\");'> Details </button>"
 										}catch (e){return "";}
 									}
 								},

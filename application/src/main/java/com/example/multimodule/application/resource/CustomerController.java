@@ -34,9 +34,9 @@ public class CustomerController {
         return "customerCreate";
     }
 
-    @GetMapping("/{crn}/customerCreate")
-    public String customerCreateGet(@PathVariable("crn") String crn, Model model) {
-        model.addAttribute("customer", this.customerManager.findByCrn(crn));
+    @GetMapping("/{id}/customerDetails")
+    public String customerCreateGet(@PathVariable("id") String id, Model model) {
+        model.addAttribute("customer", this.customerManager.findById(id));
         return "customerDetails";
     }
 

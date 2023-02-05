@@ -20,7 +20,8 @@
 		<!-- Breadcrumb -->
 		<ol id="SearchBreadCrumb" class="breadcrumb mb-0 pl-1 pb-0 pt-0">
 			<li class="breadcrumb-item"><a href="/customerHome">Home</a></li>
-			<li class="breadcrumb-item">Create</li>
+			<li class="breadcrumb-item"><a onclick="<#if currentCustomer.getId()??>onclick="redirectToCustomerDetails('${currentCustomer.getId()}')"</#if>redirectToCustomerDetails()">Customer Details</a></li>
+			<li class="breadcrumb-item">Edit</li>
 		</ol>
 		<div class="container-fluid">
 			<div class="animated fadeIn">
@@ -33,10 +34,7 @@
 								<div class="card-header">
 									<div class="btn-group float-left show">
 										<div class="btn-group float-left show">
-											<a data-toggle="collapse" href="#collapseBodyTypeDetails" aria-expanded="true" aria-controls="collapseBody" id="collapseSupplier" class="d-block pull-right">
-												<b>Customer Details</b>
-												<i class="fa fa-chevron-down pull-right"></i>
-											</a>
+											<b>Customer Details</b>
 										</div>
 									</div>
 								</div>
@@ -47,6 +45,14 @@
 											<form id="updateCustomerForm" method="post" enctype="application/x-www-form-urlencoded" action='/updateCustomer'>
 												<div class="row">
 													<div class="col-lg-4">
+														<div class="row">
+															<label class="${colmn4lbl}">CRN:</label>
+															<div class="${colmn8}">
+																<div class="form-group row">
+																	<input type="text" id="crn" class="selectpicker form-control" name="crn" readonly value='<#if currentCustomer.getCrn()??>${currentCustomer.getCrn()}</#if>'>
+																</div>
+															</div>
+														</div>
 														<div class="row">
 															<label class="${colmn4lbl}">First Name:</label>
 															<div class="${colmn8}">
@@ -60,14 +66,6 @@
 															<div class="${colmn8}">
 																<div class="form-group row">
 																	<input type="text" id="lastName" class="selectpicker form-control" name="lastName"  value='<#if currentCustomer.getLastName()??>${currentCustomer.getLastName()}</#if>'>
-																</div>
-															</div>
-														</div>
-														<div class="row">
-															<label class="${colmn4lbl}">CRN:</label>
-															<div class="${colmn8}">
-																<div class="form-group row">
-																	<input type="text" id="crn" class="selectpicker form-control" name="crn" readonly value='<#if currentCustomer.getCrn()??>${currentCustomer.getCrn()}</#if>'>
 																</div>
 															</div>
 														</div>
@@ -101,7 +99,7 @@
 															<button type="button" id="editCustomerBtn" class="btn btn-primary showPointer" onclick="validateFormFields()" title="Edit" >
 																Submit
 															</button>
-														<a ><button id="cancelEditCustomerBtn" class="btn btn-danger showPointer" onclick="<#if currentCustomer.getId()??>onclick="redirectToCustomerDetails('${currentCustomer.getId()}')"</#if>redirectToCustomerDetails()" title="">
+														<a ><button id="cancelEditCustomerBtn" class="btn btn-danger showPointer" onclick="<#if currentCustomer.getId()??>redirectToCustomerDetails('${currentCustomer.getId()}')</#if>" title="">
 																Cancel
 															</button></a>
 													</div>
