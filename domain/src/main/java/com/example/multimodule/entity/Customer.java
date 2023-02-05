@@ -23,6 +23,10 @@ public class Customer {
 
     public Customer() {}
 
+    public Customer(String crn) {
+        this.crn = crn;
+    }
+
     public Customer(String id, String crn, String firstName, String lastName, Date courseStartDate, Date courseEndDate, Date lastUpdatedDate, Date createdDate) {
         this.id = id;
         this.crn = crn;

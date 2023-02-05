@@ -9,6 +9,7 @@
     {
 		console.log("inside customerHome myInit");
 		renderOnce();
+		$('#createCustomerBtn').prop('disabled',true).css('opacity',0.5);
     }
  /*   function searchCustomerBtnClicked(paymentId){
         var crn = $("#customerCrn").val();
@@ -73,7 +74,7 @@
 	}
     function createCustomerBtnClicked(){
         var crn = $("#customerCrn").val();
-        window.location='/customerCreate';
+        window.location='/'+ crn +'/customerCreate';
     }
 	
 	function redirectToCustomerDetails(id){

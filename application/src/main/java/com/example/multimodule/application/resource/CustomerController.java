@@ -29,8 +29,9 @@ public class CustomerController {
         return "customerHome";
     }
 
-    @GetMapping("/customerCreate")
-    public String customerCreateGet() {
+    @GetMapping("/{crn}/customerCreate")
+    public String customerCreate(@PathVariable("crn") String crn, Model model) {
+        model.addAttribute("customer", new Customer(crn));
         return "customerCreate";
     }
 

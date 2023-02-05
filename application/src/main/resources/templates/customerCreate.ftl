@@ -1,7 +1,7 @@
 <#include "/includes/includes.ftl">
 <#include "/includes/customerCreateJs.ftl">
 <#assign showFormOnInit = true >
-<#assign title = "test title" >
+<#assign title = customer.crn >
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,7 +44,7 @@
 														<label class="${colmn6lbl}"><p>CRN<b style="color:red;">*</b></p></label>
 														<div class="${colmn6}">
 															<div class="form-group row">
-																<input type="text" class="selectpicker form-control " name="crn" id="crn" value="<#if title??>${title}</#if>" maxlength="11"/>
+																<input type="text" readonly class="selectpicker form-control " name="crn" id="crn" value="<#if title??>${title}</#if>" maxlength="11"/>
 															</div>
 														</div>
 													</div>
